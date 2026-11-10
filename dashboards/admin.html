@@ -1,0 +1,124 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administrator Dashboard | NexusERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f6fa;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: #20243a;
+        }
+
+            .sidebar a {
+                display: block;
+                color: #d5d7e2;
+                padding: 12px 18px;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover, .sidebar a.active {
+                    background: #5145a5;
+                    color: white;
+                }
+
+        .stat {
+            border: 0;
+            border-radius: 12px;
+        }
+
+        .main-title {
+            color: #252943;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <a class="navbar-brand fw-bold" href="../index.html">NexusERP</a>
+        <div class="text-white">Administrator | <a class="text-white" href="../login.html">Logout</a></div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-2 sidebar p-0">
+                <div class="text-white fw-bold p-3">ADMIN PANEL</div>
+                <a class="active" href="admin.html">Dashboard</a>
+                <a href="#employees">Employees</a>
+                <a href="#projects">Projects</a>
+                <a href="#clients">Clients</a>
+                <a href="#finance">Finance</a>
+                <a href="#activity">Company Activity</a>
+                <a href="../index.html">Main Website</a>
+            </aside>
+
+            <main class="col-md-10 p-4">
+                <h3 class="main-title fw-bold">Administrator Dashboard</h3>
+                <p class="text-muted">Welcome! Here's your company overview.</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Total Employees</p><h3>48</h3><small class="text-success">Company workforce</small></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Active Projects</p><h3>16</h3><small class="text-primary">Across all teams</small></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Total Clients</p><h3>24</h3><small class="text-success">Registered clients</small></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Pending Invoices</p><h3>Rs. 85K</h3><small class="text-danger">Awaiting payment</small></div></div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-lg-8" id="projects">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Project Overview</h5>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead><tr><th>Project</th><th>Manager</th><th>Status</th><th>Progress</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>Website Redesign</td><td>Ahmed</td><td><span class="badge bg-success">Active</span></td><td><div class="progress"><div class="progress-bar" style="width:75%">75%</div></div></td></tr>
+                                        <tr><td>Mobile App</td><td>Sara</td><td><span class="badge bg-primary">In Progress</span></td><td><div class="progress"><div class="progress-bar bg-info" style="width:55%">55%</div></div></td></tr>
+                                        <tr><td>CRM Development</td><td>Usman</td><td><span class="badge bg-warning text-dark">Review</span></td><td><div class="progress"><div class="progress-bar bg-warning" style="width:90%">90%</div></div></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" id="activity">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Recent Company Activity</h5>
+                            <p class="border-bottom pb-2">New employee registered <small class="d-block text-muted">Today</small></p>
+                            <p class="border-bottom pb-2">Website Redesign updated <small class="d-block text-muted">Yesterday</small></p>
+                            <p class="border-bottom pb-2">New client added <small class="d-block text-muted">Yesterday</small></p>
+                            <p>Invoice payment received <small class="d-block text-muted">2 days ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="employees">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Employee Summary</h5>
+                            <p>Human Resources <strong class="float-end">8</strong></p>
+                            <p>Software Development <strong class="float-end">22</strong></p>
+                            <p>Finance <strong class="float-end">6</strong></p>
+                            <p>Marketing <strong class="float-end">7</strong></p>
+                            <p>Operations <strong class="float-end">5</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" id="clients">
+                        <div class="card shadow-sm border-0 p-3" id="finance">
+                            <h5>Business Summary</h5>
+                            <p>Monthly Revenue <strong class="float-end">Rs. 450,000</strong></p>
+                            <p>Monthly Expenses <strong class="float-end">Rs. 180,000</strong></p>
+                            <p>Outstanding Invoices <strong class="float-end">Rs. 85,000</strong></p>
+                            <p>Registered Clients <strong class="float-end">24</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted small mt-4">NexusERP | Administrator Portal | Sample demonstration data</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accountant Dashboard | NexusERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f6fa;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: #20243a;
+        }
+
+            .sidebar a {
+                display: block;
+                color: #d5d7e2;
+                padding: 12px 18px;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover, .sidebar a.active {
+                    background: #5145a5;
+                    color: white;
+                }
+
+        .stat {
+            border: 0;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <a class="navbar-brand fw-bold" href="../index.html">NexusERP</a>
+        <div class="text-white">Accountant | <a class="text-white" href="../login.html">Logout</a></div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-2 sidebar p-0">
+                <div class="text-white fw-bold p-3">FINANCE PANEL</div>
+                <a class="active" href="accountant.html">Dashboard</a>
+                <a href="#invoices">Invoices</a>
+                <a href="#payments">Payments</a>
+                <a href="#expenses">Expenses</a>
+                <a href="#reports">Financial Reports</a>
+            </aside>
+
+            <main class="col-md-10 p-4">
+                <h3 class="fw-bold">Accountant Dashboard</h3>
+                <p class="text-muted">Monitor company finances and payment activities.</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Monthly Revenue</p><h3 class="text-success">Rs. 450K</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Total Expenses</p><h3 class="text-danger">Rs. 180K</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Outstanding Invoices</p><h3>Rs. 85K</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Received Payments</p><h3 class="text-primary">Rs. 365K</h3></div></div>
+                </div>
+
+                <div class="card shadow-sm border-0 p-3 mb-4" id="invoices">
+                    <h5>Recent Invoices</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead><tr><th>Invoice ID</th><th>Client</th><th>Amount</th><th>Due Date</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td>INV-001</td><td>ABC Technologies</td><td>Rs. 45,000</td><td>12 Nov 2026</td><td><span class="badge bg-warning text-dark">Pending</span></td></tr>
+                                <tr><td>INV-002</td><td>XYZ Solutions</td><td>Rs. 30,000</td><td>15 Nov 2026</td><td><span class="badge bg-success">Paid</span></td></tr>
+                                <tr><td>INV-003</td><td>Global Systems</td><td>Rs. 55,000</td><td>18 Nov 2026</td><td><span class="badge bg-danger">Overdue</span></td></tr>
+                                <tr><td>INV-004</td><td>Digital Works</td><td>Rs. 25,000</td><td>20 Nov 2026</td><td><span class="badge bg-warning text-dark">Pending</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-lg-6" id="payments">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Recent Payments</h5>
+                            <p>ABC Technologies <strong class="float-end text-success">Rs. 60,000</strong></p>
+                            <p>XYZ Solutions <strong class="float-end text-success">Rs. 40,000</strong></p>
+                            <p>Digital Works <strong class="float-end text-success">Rs. 25,000</strong></p>
+                            <p>Other Clients <strong class="float-end text-success">Rs. 240,000</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" id="expenses">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Expense Summary</h5>
+                            <p>Employee Salaries <strong class="float-end">Rs. 120,000</strong></p>
+                            <p>Office Expenses <strong class="float-end">Rs. 25,000</strong></p>
+                            <p>Software & Tools <strong class="float-end">Rs. 20,000</strong></p>
+                            <p>Other Expenses <strong class="float-end">Rs. 15,000</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="col-12" id="reports">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Financial Overview</h5>
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-3"><h4 class="text-success">Rs. 450K</h4><small>Revenue</small></div>
+                                <div class="col-md-4 mb-3"><h4 class="text-danger">Rs. 180K</h4><small>Expenses</small></div>
+                                <div class="col-md-4 mb-3"><h4 class="text-primary">Rs. 270K</h4><small>Net Balance</small></div>
+                            </div>
+                            <div class="progress" style="height:18px">
+                                <div class="progress-bar bg-success" style="width:60%">60% Net Balance</div>
+                                <div class="progress-bar bg-danger" style="width:40%">40% Expenses</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted small mt-4">NexusERP | Finance Portal | Sample demonstration data</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

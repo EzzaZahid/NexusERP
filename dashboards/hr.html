@@ -1,0 +1,117 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HR Dashboard | NexusERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f6fa;
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: #20243a;
+        }
+
+            .sidebar a {
+                display: block;
+                color: #d5d7e2;
+                padding: 12px 18px;
+                text-decoration: none;
+            }
+
+                .sidebar a:hover, .sidebar a.active {
+                    background: #5145a5;
+                    color: white;
+                }
+
+        .stat {
+            border: 0;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <a class="navbar-brand fw-bold" href="../index.html">NexusERP</a>
+        <div class="text-white">HR Manager | <a class="text-white" href="../login.html">Logout</a></div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-md-2 sidebar p-0">
+                <div class="text-white fw-bold p-3">HR MANAGEMENT</div>
+                <a class="active" href="hr.html">Dashboard</a>
+                <a href="#employees">Employee Records</a>
+                <a href="#attendance">Attendance</a>
+                <a href="#leaves">Leave Requests</a>
+                <a href="#departments">Departments</a>
+            </aside>
+
+            <main class="col-md-10 p-4">
+                <h3 class="fw-bold">HR Manager Dashboard</h3>
+                <p class="text-muted">Manage your workforce and employee activities.</p>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Total Employees</p><h3>48</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Present Today</p><h3 class="text-success">42</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Absent Today</p><h3 class="text-danger">3</h3></div></div>
+                    <div class="col-sm-6 col-xl-3"><div class="card stat shadow-sm p-3"><p class="text-muted mb-1">Leave Requests</p><h3 class="text-warning">5</h3></div></div>
+                </div>
+
+                <div class="card shadow-sm border-0 p-3 mb-4" id="employees">
+                    <h5>Employee Records</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead><tr><th>Name</th><th>Department</th><th>Role</th><th>Status</th></tr></thead>
+                            <tbody>
+                                <tr><td>Ali Khan</td><td>Software Development</td><td>Employee</td><td><span class="badge bg-success">Active</span></td></tr>
+                                <tr><td>Sara Ahmed</td><td>Human Resources</td><td>HR Manager</td><td><span class="badge bg-success">Active</span></td></tr>
+                                <tr><td>Usman Raza</td><td>Finance</td><td>Accountant</td><td><span class="badge bg-success">Active</span></td></tr>
+                                <tr><td>Hira Malik</td><td>Marketing</td><td>Employee</td><td><span class="badge bg-warning text-dark">On Leave</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-lg-7" id="attendance">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Today's Attendance</h5>
+                            <p>Present <strong class="float-end text-success">42</strong></p>
+                            <div class="progress mb-3"><div class="progress-bar bg-success" style="width:87.5%"></div></div>
+                            <p>Absent <strong class="float-end text-danger">3</strong></p>
+                            <div class="progress"><div class="progress-bar bg-danger" style="width:6.25%"></div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5" id="leaves">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Pending Leave Requests</h5>
+                            <p>Ali Khan — Annual Leave</p>
+                            <p>Sana Iqbal — Medical Leave</p>
+                            <p>Hira Malik — Personal Leave</p>
+                            <span class="badge bg-warning text-dark">5 requests awaiting review</span>
+                        </div>
+                    </div>
+                    <div class="col-12" id="departments">
+                        <div class="card shadow-sm border-0 p-3">
+                            <h5>Department Distribution</h5>
+                            <div class="row text-center">
+                                <div class="col"><h4>8</h4><small>HR</small></div>
+                                <div class="col"><h4>22</h4><small>Development</small></div>
+                                <div class="col"><h4>6</h4><small>Finance</small></div>
+                                <div class="col"><h4>7</h4><small>Marketing</small></div>
+                                <div class="col"><h4>5</h4><small>Operations</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-muted small mt-4">NexusERP | HR Portal | Sample demonstration data</p>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿
+/* General Styling */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #252b42;
+    background-color: #f5f6fa;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Primary Button */
+
+.btn-primary {
+    background-color: #7255d9;
+    border-color: #7255d9;
+}
+
+    .btn-primary:hover {
+        background-color: #5e43c1;
+        border-color: #5e43c1;
+    }
+
+
+/* Hero Section */
+
+.hero-section {
+    background: linear-gradient(120deg, #171b35, #34345f);
+    padding: 90px 0;
+}
+
+.hero-highlight {
+    color: #a995ff;
+}
+
+
+/* Hero Dashboard Card */
+
+.hero-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.overview-box {
+    background-color: #f5f6fa;
+    border-radius: 10px;
+    padding: 17px;
+    text-align: center;
+}
+
+    .overview-box h3 {
+        font-weight: bold;
+        margin: 10px 0 3px;
+    }
+
+    .overview-box small {
+        color: #777;
+    }
+
+
+/* Feature Cards */
+
+.feature-card {
+    background-color: white;
+    border: 1px solid #e9eaf1;
+    border-radius: 12px;
+    padding: 25px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+    }
+
+.feature-icon {
+    font-size: 35px;
+    color: #7255d9;
+}
+
+
+/* Module Cards */
+
+.module-card {
+    border: 1px solid #e9eaf1;
+    border-radius: 12px;
+    padding: 25px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+    .module-card:hover {
+        border-color: #7255d9;
+        transform: translateY(-4px);
+    }
+
+.module-icon {
+    color: #7255d9;
+    font-size: 35px;
+}
+
+.module-card h5 {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.module-card p {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: white;
+}
+
+
+/* Authentication Pages */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #f0ecff, #f5f6fa);
+}
+
+.auth-card {
+    background-color: white;
+    max-width: 450px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid #e9eaf1;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.07);
+}
+
+.signup-card {
+    max-width: 550px;
+}
+
+.brand-logo {
+    color: #252b42;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+    .brand-logo i {
+        color: #7255d9;
+    }
+
+
+/* Form Controls */
+
+.form-control,
+.form-select {
+    padding: 11px;
+    border-color: #dfe1eb;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #7255d9;
+        box-shadow: 0 0 0 3px rgba(114, 85, 217, 0.12);
+    }
+
+
+/* Responsive */
+
+@media (max-width: 576px) {
+
+    .hero-section {
+        padding: 60px 0;
+    }
+
+        .hero-section h1 {
+            font-size: 35px;
+        }
+
+    .auth-card {
+        padding: 25px 20px;
+    }
+}

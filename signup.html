@@ -1,0 +1,136 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | NexusERP</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">NexusERP</a>
+            <a href="index.html" class="btn btn-outline-light btn-sm">Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6">
+
+                <div class="card shadow border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Create Your Account</h2>
+                            <p class="text-muted">
+                                Register as a NexusERP employee
+                            </p>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <strong>Account Information:</strong>
+                            All new registrations receive the Employee role.
+                            An Administrator can assign additional roles later.
+                        </div>
+
+                        <form id="signupForm">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control"
+                                           name="firstName" placeholder="First name" required>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control"
+                                           name="lastName" placeholder="Last name" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control"
+                                       name="email" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Department</label>
+                                <select class="form-select" name="department" required>
+                                    <option value="">Select your department</option>
+                                    <option value="Human Resources">Human Resources</option>
+                                    <option value="Software Development">Software Development</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Operations">Operations</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-control"
+                                       id="password" name="password"
+                                       placeholder="Create a password" minlength="6" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control"
+                                       id="confirmPassword" name="confirmPassword"
+                                       placeholder="Confirm your password" minlength="6" required>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox"
+                                       id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the terms and conditions.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">
+                                Create Account
+                            </button>
+
+                        </form>
+
+                        <p class="text-center mt-4 mb-0">
+                            Already have an account?
+                            <a href="login.html">Login here</a>
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            alert("Registration successful! Your account is registered with the Employee role. An administrator can assign other roles.");
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

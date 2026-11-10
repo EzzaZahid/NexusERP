@@ -1,0 +1,6 @@
+.vs/
+.env
+.env.*
+node_modules/
+bin/
+obj/
