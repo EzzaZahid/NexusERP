@@ -1,0 +1,60 @@
+﻿@model NexusERP_D2.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete Employee";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <div class="card shadow border-0">
+                <div class="card-body p-4">
+
+                    <h2 class="text-danger">
+                        Delete Employee
+                    </h2>
+
+                    <p>
+                        Are you sure you want to delete this employee?
+                    </p>
+
+                    <dl class="row">
+                        <dt class="col-sm-4">Employee Number</dt>
+                        <dd class="col-sm-8">@Model.EmployeeNumber</dd>
+
+                        <dt class="col-sm-4">Full Name</dt>
+                        <dd class="col-sm-8">@Model.FullName</dd>
+
+                        <dt class="col-sm-4">Department</dt>
+                        <dd class="col-sm-8">@Model.Department</dd>
+
+                        <dt class="col-sm-4">Designation</dt>
+                        <dd class="col-sm-8">@Model.Designation</dd>
+                    </dl>
+
+                    <form asp-action="Delete" method="post">
+
+                        <input type="hidden" name="id"
+                               value="@Model.Id" />
+
+                        <button type="submit"
+                                class="btn btn-danger">
+                            Confirm Delete
+                        </button>
+
+                        <a asp-action="Index"
+                           class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<NexusERP_D2.Models.Client>
+
+@{
+    ViewData["Title"] = "Client Management";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Client Management</h2>
+            <p class="text-muted">Manage your business clients and their contact information.</p>
+        </div>
+        <a asp-action="Create" class="btn btn-primary">+ Add Client</a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+
+    <form asp-action="Index" method="get" class="row g-2 mb-3">
+        <div class="col-md-6">
+            <input type="text" name="search" value="@ViewBag.Search"
+                   class="form-control"
+                   placeholder="Search by name, contact, email or phone..." />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-primary">Search</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Clear</a>
+        </div>
+    </form>
+
+    <div class="card shadow-sm">
+        <div class="card-body table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Client</th>
+                        <th>Contact Person</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Type</th>
+                        <th>Registration Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Any())
+                    {
+                        @foreach (var client in Model)
+                        {
+                            <tr>
+                                <td>@client.Name</td>
+                                <td>@client.ContactPerson</td>
+                                <td>@client.Email</td>
+                                <td>@client.Phone</td>
+                                <td><span class="badge bg-info text-dark">@client.ClientType</span></td>
+                                <td>@client.CreatedDate.ToString("dd MMM yyyy")</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@client.Id"
+                                       class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a asp-action="Delete" asp-route-id="@client.Id"
+                                       class="btn btn-sm btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center text-muted py-4">
+                                No clients found. Add your first client.
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

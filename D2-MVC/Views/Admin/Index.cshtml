@@ -1,0 +1,142 @@
+﻿@model NexusERP_D2.Models.ViewModels.UserManagementViewModel
+
+@{
+    ViewData["Title"] = "User Management";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>User Management</h2>
+            <p class="text-muted">
+                Manage NexusERP users and their permissions.
+            </p>
+        </div>
+
+        <span class="badge bg-primary fs-6">
+            Total Users: @Model.Users.Count
+        </span>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <div class="card shadow-sm border-0">
+
+        <div class="card-header bg-dark text-white">
+            Registered Users
+        </div>
+
+        <div class="card-body table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Current Role</th>
+                        <th>Change Role</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.FullName</td>
+
+                            <td>@user.Email</td>
+
+                            <td>@user.Department</td>
+
+                            <td>
+                                @if (user.Role == "Admin")
+                                {
+                                    <span class="badge bg-danger">
+                                        Admin
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-primary">
+                                        Employee
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+                                <form asp-action="ChangeRole"
+                                      method="post"
+                                      class="d-flex gap-2">
+
+                                    <input type="hidden"
+                                           name="userId"
+                                           value="@user.Id" />
+
+                                    <select name="role"
+                                            class="form-select form-select-sm">
+
+                                        <option value="Employee"
+                                                selected="@(user.Role == "Employee")">
+                                            Employee
+                                        </option>
+
+                                        <option value="Admin"
+                                                selected="@(user.Role == "Admin")">
+                                            Admin
+                                        </option>
+
+                                    </select>
+
+                                    <button type="submit"
+                                            class="btn btn-sm btn-dark">
+                                        Update
+                                    </button>
+
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+            @if (!Model.Users.Any())
+            {
+                <p class="text-center text-muted">
+                    No registered users found.
+                </p>
+            }
+
+        </div>
+    </div>
+
+    <a asp-controller="Dashboard"
+       asp-action="Index"
+       class="btn btn-outline-secondary mt-3">
+        Back to Dashboard
+    </a>
+
+    <a asp-controller="Client"
+       asp-action="Index"
+       class="btn btn-primary">
+        Manage Clients
+    </a>
+
+</div>

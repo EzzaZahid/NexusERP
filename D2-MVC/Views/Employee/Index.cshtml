@@ -1,0 +1,149 @@
+﻿@model List<NexusERP_D2.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee Management";
+}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Employee Management</h2>
+            <p class="text-muted">
+                Manage your organization's employees.
+            </p>
+        </div>
+
+        <a asp-action="Create" class="btn btn-primary">
+            + Add Employee
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+
+            <form asp-action="Index" method="get"
+                  class="row g-3">
+
+                <div class="col-md-5">
+                    <input type="text"
+                           name="search"
+                           value="@ViewBag.Search"
+                           class="form-control"
+                           placeholder="Search name or employee number" />
+                </div>
+
+                @* <div class="col-md-4">
+                    <select name="department" class="form-select">
+                        <option value="">All Departments</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Operations">Operations</option>
+                        <option value="IT">IT</option>
+                    </select>
+                </div> *@
+
+                <select name="department"
+                        asp-items="ViewBag.Departments"
+                        class="form-select">
+                    <option value="">All Departments</option>
+                </select>
+
+                <div class="col-md-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-dark">
+                        Search
+                    </button>
+
+                    <a asp-action="Index"
+                       class="btn btn-outline-secondary">
+                        Clear
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body table-responsive">
+
+            <table class="table table-hover align-middle">
+
+                <thead>
+                    <tr>
+                        <th>Employee No.</th>
+                        <th>Full Name</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Joining Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <td>@employee.EmployeeNumber</td>
+                            <td>@employee.FullName</td>
+                            <td>@employee.Department</td>
+                            <td>@employee.Designation</td>
+                            <td>@employee.JoiningDate.ToString("dd MMM yyyy")</td>
+
+                            <td>
+                                @if (employee.EmploymentStatus == "Active")
+                                {
+                                    <span class="badge bg-success">
+                                        Active
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">
+                                        @employee.EmploymentStatus
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+                                <div class="d-flex gap-2">
+
+                                    <a asp-action="Edit"
+                                       asp-route-id="@employee.Id"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Edit
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@employee.Id"
+                                       class="btn btn-sm btn-outline-danger">
+                                        Delete
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+            @if (!Model.Any())
+            {
+                <p class="text-center text-muted">
+                    No employees found.
+                </p>
+            }
+
+        </div>
+    </div>
+
+</div>

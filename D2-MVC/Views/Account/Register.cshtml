@@ -1,0 +1,113 @@
+﻿@model NexusERP_D2.Models.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Create Account";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card shadow border-0">
+                <div class="card-body p-4">
+
+                    <h2 class="text-center mb-2">
+                        Create Account
+                    </h2>
+
+                    <p class="text-center text-muted mb-4">
+                        Join NexusERP
+                    </p>
+
+                    <form asp-action="Register" method="post">
+
+                        <div asp-validation-summary="All"
+                             class="text-danger mb-3">
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="FullName"
+                                   class="form-label"></label>
+
+                            <input asp-for="FullName"
+                                   class="form-control"
+                                   placeholder="Enter full name" />
+
+                            <span asp-validation-for="FullName"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email"
+                                   class="form-label"></label>
+
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   placeholder="Enter email" />
+
+                            <span asp-validation-for="Email"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Department"
+                                   class="form-label"></label>
+
+                            <select asp-for="Department"
+                                    class="form-select">
+                                <option value="">Select Department</option>
+                                <option>Human Resources</option>
+                                <option>Finance</option>
+                                <option>Operations</option>
+                                <option>IT</option>
+                            </select>
+
+                            <span asp-validation-for="Department"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password"
+                                   class="form-label"></label>
+
+                            <input asp-for="Password"
+                                   class="form-control"
+                                   placeholder="Minimum 8 characters" />
+
+                            <span asp-validation-for="Password"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword"
+                                   class="form-label"></label>
+
+                            <input asp-for="ConfirmPassword"
+                                   class="form-control" />
+
+                            <span asp-validation-for="ConfirmPassword"
+                                  class="text-danger"></span>
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Register
+                        </button>
+
+                    </form>
+
+                    <p class="text-center mt-3 mb-0">
+                        Already registered?
+                        <a asp-action="Login">Login</a>
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

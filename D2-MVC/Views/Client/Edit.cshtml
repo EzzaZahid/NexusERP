@@ -1,0 +1,30 @@
+﻿@model NexusERP_D2.Models.Client
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<div class="container mt-4">
+    <h2>Edit Client</h2>
+    <p class="text-muted">Update the client's information.</p>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="CreatedDate" />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <partial name="_ClientForm" model="Model" />
+
+                <button type="submit" class="btn btn-primary">Update Client</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

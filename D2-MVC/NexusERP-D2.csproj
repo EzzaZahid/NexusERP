@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-NexusERP_D2-1bd6b37e-df46-42f1-b75c-5fe41e0e77b7</UserSecretsId>
+    <RootNamespace>NexusERP_D2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\HR\" />
+    <Folder Include="Views\Accountant\" />
+    <Folder Include="Views\ProjectManager\" />
+  </ItemGroup>
+
+</Project>

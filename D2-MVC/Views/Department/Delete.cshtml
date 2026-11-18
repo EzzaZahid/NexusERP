@@ -1,0 +1,24 @@
+﻿@model NexusERP_D2.Models.Department
+
+@{
+    ViewData["Title"] = "Delete Department";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2>Delete Department</h2>
+
+            <p>Are you sure you want to delete <strong>@Model.Name</strong>?</p>
+
+            <p class="text-muted">
+                Departments with assigned employees cannot be deleted.
+            </p>
+
+            <form asp-action="Delete" asp-route-id="@Model.Id" method="post">
+                <button type="submit" class="btn btn-danger">Confirm Delete</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
